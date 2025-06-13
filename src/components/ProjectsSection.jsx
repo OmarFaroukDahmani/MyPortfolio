@@ -28,7 +28,7 @@ const projects = [
     description:
       "A university club website built with React.",
     image: "/projects/project3.png",
-    tags: ["React", "Jsx", "Php", "MySQL"],
+    tags: ["React", "Jsx"],
     demoUrl: "https://edujoy.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/edujoy",
   },
