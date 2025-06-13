@@ -1,5 +1,4 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import { ProjectDetails } from "./ProjectDetails";
 import { Link } from "react-router-dom";
 
 
@@ -10,29 +9,39 @@ const projects = [
     description: "A beautiful portfolio using React and Tailwind.",
     image: "/projects/project1.png",
     tags: ["React", "TailwindCSS", "JSX"],
-    demoUrl:"projects/1",
-    githubUrl: "https://github.com/OmarFaroukDahmani",
+    demoUrl:"https://omarfaroukdahmani.pages.dev/",
+    githubUrl: "https://github.com/OmarFaroukDahmani/MyPortfolio",
   },
   {
     id: 2,
     title: "Commercial Website",
     description:
-      "A commercial website built with PHP and MySQL, featuring a dynamic product catalog.",
+      "A commercial website built with Html and Css.",
     image: "/projects/project2.png",
-    tags: ["Php", "SQL", "Javascript", "Html & CSS"],
-    demoUrl: "projects/2",
-    githubUrl: "https://github.com/OmarFaroukDahmani",
+    tags: ["Javascript", "Html", "CSS"],
+    demoUrl: "https://vistavault.pages.dev/",
+    githubUrl: "https://github.com/OmarFaroukDahmani/VistaVault",
   },
   {
     id: 3,
     title: "Universtiy Club Website",
     description:
-      "A university club website built with React, featuring a registration system using Php.",
+      "A university club website built with React.",
     image: "/projects/project3.png",
     tags: ["React", "Jsx", "Php", "MySQL"],
-    demoUrl: "projects/3",
-    githubUrl: "https://github.com/OmarFaroukDahmani",
+    demoUrl: "https://edujoy.pages.dev/",
+    githubUrl: "https://github.com/OmarFaroukDahmani/edujoy",
   },
+    {
+    id: 4,
+    title: "E-learning Platform",
+    description:
+      "A Platform for e-learning built with React (Vite).",
+    image: "/projects/project4.png",
+    tags: ["React", "Jsx", ],
+    demoUrl: "https://pizone.pages.dev/",
+    githubUrl: "https://github.com/OmarFaroukDahmani/pizone",
+  }
 ];
 
 
@@ -80,14 +89,14 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-<a
-  href={`/projects/${project.id}`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-foreground/80 hover:text-primary transition-colors duration-300"
->
-  <ExternalLink size={20} />
-</a>
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
                     <a
                       href={project.githubUrl}
                       target="_blank"
