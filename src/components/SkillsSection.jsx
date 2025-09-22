@@ -3,17 +3,18 @@ import { cn } from "@/lib/utils";
 
 const skills = [
   // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 85, category: "frontend" },
-  { name: "React", level: 78, category: "frontend" },
+  { name: "HTML/CSS",  category: "frontend" },
+  { name: "JavaScript",  category: "frontend" },
+  { name: "React", category: "frontend" },
 
   // Backend
-  { name: "Python", level: 90, category: "backend" },
-  { name: "C/C++", level: 80, category: "backend" },
+  { name: "Python",  category: "backend" },
+  { name: "C/C++", category: "backend" },
+  { name : "Express Js", category : "backend"},
 
   // Tools
-  { name: "Git/GitHub", level: 80, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
+  { name: "Git/GitHub", category: "tools" },
+  { name: "VS Code", category: "tools" },
 ];
 
 const categories = ["all", "frontend","backend", "tools"];
@@ -55,19 +56,7 @@ export const SkillsSection = () => {
               className="bg-card p-6 rounded-lg shadow-xs card-hover"
             >
               <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
+                <h3 className="font-semibold text-lg" style={{ textAlign: 'center' }}> {skill.name}</h3>
               </div>
             </div>
           ))}

@@ -9,7 +9,7 @@ const projects = [
     description: "A beautiful portfolio using React and Tailwind.",
     image: "/projects/project1.png",
     tags: ["React", "TailwindCSS", "JSX"],
-    demoUrl:"https://omarfaroukdahmani.pages.dev/",
+    demoUrl:"https://omardahmani.netlify.app/",
     githubUrl: "https://github.com/OmarFaroukDahmani/MyPortfolio",
   },
   {
@@ -41,6 +41,16 @@ const projects = [
     tags: ["React", "Jsx", ],
     demoUrl: "https://pizone.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/pizone",
+  },
+    {
+    id: 5,
+    title: "AI Meal Maker",
+    description:
+      "An AI-powered recipe guide that creates meal ideas from any ingredients you have on hand.",
+    image: "/projects/project5.png",
+    tags: ["React", "Jsx"],
+    demoUrl: "https://sekachef.netlify.app/",
+    githubUrl: "https://github.com/OmarFaroukDahmani/sekaChef",
   }
 ];
 
