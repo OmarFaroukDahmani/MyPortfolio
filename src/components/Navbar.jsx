@@ -43,55 +43,65 @@ export const Navbar = () => {
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            >
-              {item.name}
-            </a>
-          ))}
+        <div className="hidden md:flex flex-1 items-center justify-center">
+          <ul className="flex space-x-8">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Desktop Theme Toggle */}
+        <div className="hidden md:flex items-center">
           <ThemeToggle />
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="flex items-center md:hidden space-x-3">
+          {/* Theme Toggle on mobile */}
+          <ThemeToggle />
 
-        {/* Mobile Menu */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-8 text-xl items-center">
-            {navItems.map((item) => (
+          {/* Burger Menu */}
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="p-2 text-foreground z-50"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={cn(
+          "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+          "transition-all duration-300 md:hidden",
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        )}
+      >
+        <ul className="flex flex-col space-y-8 text-xl items-center">
+          {navItems.map((item) => (
+            <li key={item.name}>
               <a
-                key={item.name}
                 href={item.href}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>
-            ))}
-            {/* Theme toggle once, after links */}
-            <div className="pt-8">
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );
