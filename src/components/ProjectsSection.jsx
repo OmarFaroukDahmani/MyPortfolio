@@ -4,15 +4,6 @@ import { Link } from "react-router-dom";
 
 const projects = [
   {
-    id: 1,
-    title: "My Portfolio",
-    description: "A beautiful portfolio using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "JSX"],
-    demoUrl:"https://omardahmani.netlify.app/",
-    githubUrl: "https://github.com/OmarFaroukDahmani/MyPortfolio",
-  },
-  {
     id: 2,
     title: "Commercial Website",
     description:

@@ -107,9 +107,9 @@ export const ContactSection = () => {
               <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex justify-center space-x-6">
                 {[
-                  { Icon: FaLinkedin, link: "https://linkedin.com", color: "text-blue-600" },
-                  { Icon: FaGithub, link: "https://github.com", color: "text-gray-800 dark:text-gray-200" },
-                  { Icon: SiUpwork, link: "https://upwork.com", color: "text-green-600" },
+                  { Icon: FaLinkedin, link: "https://www.linkedin.com/in/omar-farouk-dahmani/", color: "text-blue-600" },
+                  { Icon: FaGithub, link: "https://github.com/OmarFaroukDahmani", color: "text-gray-800 dark:text-gray-200" },
+                  { Icon: SiUpwork, link: "https://upwork.com/freelancers/~013077f0433bc70d9e", color: "text-green-600" },
                 ].map(({ Icon, link, color }, i) => (
                   <a
                     key={i}

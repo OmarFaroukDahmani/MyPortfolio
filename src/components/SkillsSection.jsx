@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
-  FaHtml5, FaCss3Alt, FaJs, FaPython, FaReact, FaNodeJs, FaGithub, FaDatabase, FaGitAlt, FaCloud 
+  FaHtml5, FaCss3Alt, FaJs, FaPython, FaReact, FaNodeJs, FaGithub, FaGitAlt
 } from "react-icons/fa";
 import { SiCplusplus, SiExpress, SiMysql, SiNetlify, SiNpm } from "react-icons/si";
 
@@ -27,11 +27,11 @@ const skills = [
 
 const categories = [
   "All",
+  "Tools",
+  "Databases",
   "Programming Languages",
   "Frameworks & Libraries",
-  "Databases",
   "Hosting & Cloud Deployment",
-  "Tools",
 ];
 
 export const SkillsSection = () => {
@@ -71,11 +71,12 @@ export const SkillsSection = () => {
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="flex flex-col items-center justify-center p-5 rounded-xl bg-card/80 backdrop-blur-md 
-                         border border-border shadow-md hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
+              className="flex flex-col sm:flex-row items-center sm:items-center gap-3 p-4 
+                         rounded-xl bg-card/80 backdrop-blur-md border border-border 
+                         shadow-md hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
             >
-              <div className="text-4xl mb-3">{skill.icon}</div>
-              <h3 className="font-semibold text-lg text-center">{skill.name}</h3>
+              <div className="text-4xl">{skill.icon}</div>
+              <h3 className="font-semibold text-lg text-center sm:text-left">{skill.name}</h3>
             </div>
           ))}
         </div>
