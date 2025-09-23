@@ -27,11 +27,12 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
+        "fixed w-full z-50 transition-all duration-300",
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
       <div className="container flex items-center justify-between">
+        {/* Logo */}
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="/"
@@ -43,16 +44,15 @@ export const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item, key) => (
+          {navItems.map((item) => (
             <a
-              key={key}
+              key={item.name}
               href={item.href}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
             </a>
           ))}
-          {/* theme toggle at the end */}
           <ThemeToggle />
         </div>
 
@@ -76,9 +76,9 @@ export const Navbar = () => {
           )}
         >
           <div className="flex flex-col space-y-8 text-xl items-center">
-            {navItems.map((item, key) => (
+            {navItems.map((item) => (
               <a
-                key={key}
+                key={item.name}
                 href={item.href}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
@@ -86,8 +86,8 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            {/* theme toggle separated below links */}
-            <div className="pt-6">
+            {/* Theme toggle once, after links */}
+            <div className="pt-8">
               <ThemeToggle />
             </div>
           </div>

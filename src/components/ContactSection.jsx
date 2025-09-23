@@ -22,10 +22,10 @@ export const ContactSection = () => {
 
     try {
       const result = await emailjs.sendForm(
-        "service_nvfzbgj", // replace with your EmailJS service ID
-        "template_r5an66n", // replace with your EmailJS template ID
+        "service_nvfzbgj",
+        "template_r5an66n",
         formRef.current,
-        "lLvFu41Qe0e1Qq20D" // replace with your EmailJS public key
+        "lLvFu41Qe0e1Qq20D"
       );
 
       if (result.text === "OK") {
@@ -48,92 +48,85 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
+    <section
+      id="contact"
+      className="py-24 px-4 relative bg-gradient-to-b from-background to-secondary/30"
+    >
+      <div className="container mx-auto max-w-6xl">
+        {/* Section Heading */}
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-center">
+          Let’s <span className="text-primary">Connect</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
+        <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
+          Have a project in mind or want to collaborate? Drop me a message and
+          let’s build something amazing together 🚀
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="backdrop-blur-md bg-card/70 p-10 rounded-2xl shadow-lg border border-border/40">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />
+            <div className="space-y-6 text-center">
+              {[
+                {
+                  label: "Email",
+                  value: "omar.farouk.dahmani.contact@gmail.com",
+                  link: "mailto:omar.farouk.dahmani.contact@gmail.com",
+                },
+                {
+                  label: "Phone",
+                  value: "+216 93 992 373",
+                  link: "tel:+21693992373",
+                },
+                {
+                  label: "Location",
+                  value: "Ras El Kef, Gafsa, Tunisia",
+                },
+              ].map((item, i) => (
+                <div key={i}>
+                  <h4 className="font-semibold text-lg text-primary">{item.label}</h4>
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      className="text-muted-foreground hover:text-primary transition-colors block"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-muted-foreground">{item.value}</p>
+                  )}
                 </div>
-                <div>
-                  <h4 className="font-medium">Email</h4>
-                  <a
-                    href="mailto:omar.farouk.dahmani.contact@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    omar.farouk.dahmani.contact@gmail.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Phone</h4>
-                  <a
-                    href="tel:+21693992373"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    +216 93 992 373
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Location</h4>
-                  <p className="text-muted-foreground">Ras El Kef, Gafsa, Tunisia</p>
-                </div>
-              </div>
+              ))}
             </div>
 
+
             {/* Social Icons */}
-            <div className="pt-8">
+            <div className="pt-10">
               <h4 className="font-medium mb-4">Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a
-                  href="https://www.linkedin.com/in/omar-farouk-dahmani-b3a480334/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaLinkedin className="w-8 h-8 text-blue-600" />
-                </a>
-                <a
-                  href="https://github.com/OmarFaroukDahmani"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaGithub className="w-8 h-8" />
-                </a>
-                <a
-                  href="https://www.upwork.com/freelancers/~013077f0433bc70d9e"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <SiUpwork className="w-8 h-8 text-green-600" />
-                </a>
+              <div className="flex justify-center space-x-6">
+                {[
+                  { Icon: FaLinkedin, link: "https://linkedin.com", color: "text-blue-600" },
+                  { Icon: FaGithub, link: "https://github.com", color: "text-gray-800 dark:text-gray-200" },
+                  { Icon: SiUpwork, link: "https://upwork.com", color: "text-green-600" },
+                ].map(({ Icon, link, color }, i) => (
+                  <a
+                    key={i}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`transition-transform transform hover:scale-110 ${color}`}
+                  >
+                    <Icon className="w-9 h-9" />
+                  </a>
+                ))}
               </div>
+
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-lg shadow-xs">
+          <div className="bg-card p-10 rounded-2xl shadow-xl border border-border/40">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -146,7 +139,7 @@ export const ContactSection = () => {
                   id="name"
                   name="from_name"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background shadow-sm focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Your Name..."
                 />
               </div>
@@ -160,7 +153,7 @@ export const ContactSection = () => {
                   id="email"
                   name="reply_to"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background shadow-sm focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="john@gmail.com"
                 />
               </div>
@@ -172,8 +165,9 @@ export const ContactSection = () => {
                 <textarea
                   id="message"
                   name="message"
+                  rows={5}
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background shadow-sm focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 />
               </div>
@@ -182,11 +176,12 @@ export const ContactSection = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
+                  "cosmic-button w-full flex items-center justify-center gap-2 py-3 text-lg font-medium rounded-lg transition-all duration-300",
+                  isSubmitting && "opacity-70 cursor-not-allowed"
                 )}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
+                <Send size={18} />
               </button>
             </form>
           </div>

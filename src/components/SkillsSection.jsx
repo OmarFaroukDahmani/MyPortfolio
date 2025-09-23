@@ -47,12 +47,12 @@ export const SkillsSection = () => {
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-14">
-          {categories.map((category, key) => (
+          {categories.map((category) => (
             <button
-              key={key}
+              key={category}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 cosmic-button",
+                "w-40 text-center px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 cosmic-button",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50"
                   : "bg-secondary/70 text-foreground hover:bg-primary/20"
@@ -62,6 +62,7 @@ export const SkillsSection = () => {
             </button>
           ))}
         </div>
+
 
         {/* Skill Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
