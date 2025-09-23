@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <footer className="py-12 px-4 bg-card border-t border-border mt-12 pt-8 flex flex-col items-center gap-4">
       <p className="text-sm text-muted-foreground text-center">
-        &copy; {currentYear} Made with ❤️ Omar Dahmani. All rights reserved.
+        &copy; {currentYear} Made with ❤️ Omar Dahmani.
       </p>
       <a
         href="#hero"
