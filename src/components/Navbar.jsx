@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "../components/ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -16,12 +17,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav
       className={cn(
@@ -32,16 +34,15 @@ export const Navbar = () => {
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
+          href="/"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> Omar </span>{" "}
-            Portfolio
+            <span className="text-glow text-foreground">Omar</span> Portfolio
           </span>
         </a>
 
-        {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
@@ -51,28 +52,30 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          {/* theme toggle at the end */}
+          <ThemeToggle />
         </div>
 
-        {/* mobile nav */}
-
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
+        {/* Mobile Menu */}
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
           )}
         >
-          <div className="flex flex-col space-y-8 text-xl">
+          <div className="flex flex-col space-y-8 text-xl items-center">
             {navItems.map((item, key) => (
               <a
                 key={key}
@@ -83,6 +86,10 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            {/* theme toggle separated below links */}
+            <div className="pt-6">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>

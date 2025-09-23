@@ -2,46 +2,60 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  // Frontend
-  { name: "HTML/CSS",  category: "frontend" },
-  { name: "JavaScript",  category: "frontend" },
-  { name: "React", category: "frontend" },
+  { name: "HTML", category: "Programming Languages" },
+  { name: "CSS", category: "Programming Languages" },
+  { name: "JavaScript", category: "Programming Languages" },
+  { name: "Python", category: "Programming Languages" },
+  { name: "C++", category: "Programming Languages" },
 
-  // Backend
-  { name: "Python",  category: "backend" },
-  { name: "C/C++", category: "backend" },
-  { name : "Express Js", category : "backend"},
+  { name: "React", category: "Frameworks & Libraries" },
+  { name: "Express.js", category: "Frameworks & Libraries" },
+  { name: "Node.js", category: "Frameworks & Libraries" },
 
-  // Tools
-  { name: "Git/GitHub", category: "tools" },
-  { name: "VS Code", category: "tools" },
+  { name: "Netlify", category: "Hosting & Cloud Deployment" },
+
+  { name: "MySql", category: "Databases" },
+
+  { name: "Git", category: "Tools" },
+  { name: "Github", category: "Tools" },
+  { name: "VS Code", category: "Tools" },
+  { name: "npm", category: "Tools" },
 ];
 
-const categories = ["all", "frontend","backend", "tools"];
+const categories = [
+  "All",
+  "Programming Languages",
+  "Frameworks & Libraries",
+  "Databases",
+  "Hosting & Cloud Deployment",
+  "Tools",
+];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
+    (skill) => activeCategory === "All" || skill.category === activeCategory
   );
+
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+      <div className="container mx-auto max-w-6xl">
+        <h2 className="text-3xl md:text-5xl font-bold mb-14 text-center">
+          My <span className="text-primary text-glow">Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-14">
           {categories.map((category, key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 cosmic-button",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50"
+                  : "bg-secondary/70 text-foreground hover:bg-primary/20"
               )}
             >
               {category}
@@ -49,15 +63,17 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Skill Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              className="bg-card/80 backdrop-blur-md border border-border rounded-xl p-6 shadow-md 
+                         card-hover animate-fade-in hover:shadow-primary/30 transition-all"
             >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg" style={{ textAlign: 'center' }}> {skill.name}</h3>
-              </div>
+              <h3 className="font-semibold text-lg text-center text-glow">
+                {skill.name}
+              </h3>
             </div>
           ))}
         </div>

@@ -1,5 +1,4 @@
 import {
-  Linkedin,
   Mail,
   MapPin,
   Phone,
@@ -7,25 +6,47 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
+import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      const result = await emailjs.sendForm(
+        "service_nvfzbgj", // replace with your EmailJS service ID
+        "template_r5an66n", // replace with your EmailJS template ID
+        formRef.current,
+        "lLvFu41Qe0e1Qq20D" // replace with your EmailJS public key
+      );
+
+      if (result.text === "OK") {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        formRef.current.reset();
+      }
+    } catch (error) {
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Error sending message",
+        description: "Please try again later.",
+        variant: "destructive",
       });
+      console.error(error);
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -39,23 +60,19 @@ export const ContactSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Info */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
-              {" "}
-              Contact Information
-            </h3>
-
-            <div className="space-y-6 justify-center">
+            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className="font-medium">Email</h4>
                   <a
                     href="mailto:omar.farouk.dahmani.contact@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
-                
                   >
                     omar.farouk.dahmani.contact@gmail.com
                   </a>
@@ -63,10 +80,10 @@ export const ContactSection = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
+                  <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium">Phone</h4>
                   <a
                     href="tel:+21693992373"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -77,88 +94,88 @@ export const ContactSection = () => {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
+                  <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Ras El Kef, Gafsa, Tunisia
-                  </a>
+                  <h4 className="font-medium">Location</h4>
+                  <p className="text-muted-foreground">Ras El Kef, Gafsa, Tunisia</p>
                 </div>
               </div>
             </div>
 
+            {/* Social Icons */}
             <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
+              <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="https://www.linkedin.com/in/omar-farouk-dahmani-b3a480334/" target="_blank">
-                  <Linkedin />
+                <a
+                  href="https://www.linkedin.com/in/omar-farouk-dahmani-b3a480334/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="w-8 h-8 text-blue-600" />
+                </a>
+                <a
+                  href="https://github.com/OmarFaroukDahmani"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub className="w-8 h-8" />
+                </a>
+                <a
+                  href="https://www.upwork.com/freelancers/~013077f0433bc70d9e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SiUpwork className="w-8 h-8 text-green-600" />
                 </a>
               </div>
             </div>
           </div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
-            <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
+          {/* Contact Form */}
+          <div className="bg-card p-8 rounded-lg shadow-xs">
+            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-            <form   action="https://formspree.io/f/meokjyvn" 
-                    method="POST"
-                    className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Your Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="from_name"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Your Name..."
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
                   Your Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="reply_to"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="john@gmail.com"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Your Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 />
-                <input type="text" name="_gotcha" style={{ display: 'none' }} />
               </div>
 
               <button
