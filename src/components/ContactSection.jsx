@@ -1,9 +1,4 @@
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-} from "lucide-react";
+import {Send} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
@@ -108,7 +103,7 @@ export const ContactSection = () => {
               <div className="flex justify-center space-x-6">
                 {[
                   { Icon: FaLinkedin, link: "https://www.linkedin.com/in/omar-farouk-dahmani/", color: "text-blue-600" },
-                  { Icon: FaGithub, link: "https://github.com/OmarFaroukDahmani", color: "text-gray-800 dark:text-gray-200" },
+                  { Icon: FaGithub, link: "https://github.com/OmarFaroukDahmani", color: "text-gray-700 " },
                   { Icon: SiUpwork, link: "https://upwork.com/freelancers/~013077f0433bc70d9e", color: "text-green-600" },
                 ].map(({ Icon, link, color }, i) => (
                   <a
@@ -116,9 +111,9 @@ export const ContactSection = () => {
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`transition-transform transform hover:scale-110 ${color}`}
+                    className={`transition-transform transform hover:scale-110`}
                   >
-                    <Icon className="w-9 h-9" />
+                    <Icon className= {`w-9 h-9 ${color}`}  />
                   </a>
                 ))}
               </div>

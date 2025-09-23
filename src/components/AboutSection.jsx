@@ -35,13 +35,14 @@ export const AboutSection = () => {
               </a>
 
               <a
-              target="_blank"
-              download
-                href="./public/Omar-Farouk-Dahmani-Resume.pdf"
+                href="/Omar-Farouk-Dahmani-Resume.pdf"
+                download
+                target="_blank"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
               </a>
+
             </div>
           </div>
 

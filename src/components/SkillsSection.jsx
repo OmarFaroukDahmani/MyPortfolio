@@ -71,12 +71,11 @@ export const SkillsSection = () => {
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="flex flex-col sm:flex-row items-center sm:items-center gap-3 p-4 
-                         rounded-xl bg-card/80 backdrop-blur-md border border-border 
-                         shadow-md hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
+              className="flex flex-row items-center gap-3 p-4 rounded-xl bg-card/80 backdrop-blur-md 
+                         border border-border shadow-md hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
             >
-              <div className="text-4xl">{skill.icon}</div>
-              <h3 className="font-semibold text-lg text-center sm:text-left">{skill.name}</h3>
+              <div className="text-3xl">{skill.icon}</div>
+              <h3 className="font-semibold text-lg">{skill.name}</h3>
             </div>
           ))}
         </div>
