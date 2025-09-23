@@ -67,7 +67,7 @@ export const ContactSection = () => {
           {/* Contact Info */}
           <div className="backdrop-blur-md bg-card/70 p-10 rounded-2xl shadow-lg border border-border/40">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-            <div className="space-y-6 text-center">
+            <div className="space-y-6 text-center max-w-full">
               {[
                 {
                   label: "Email",
@@ -84,21 +84,22 @@ export const ContactSection = () => {
                   value: "Ras El Kef, Gafsa, Tunisia",
                 },
               ].map((item, i) => (
-                <div key={i}>
+                <div key={i} className="break-words">
                   <h4 className="font-semibold text-lg text-primary">{item.label}</h4>
                   {item.link ? (
                     <a
                       href={item.link}
-                      className="text-muted-foreground hover:text-primary transition-colors block"
+                      className="text-muted-foreground hover:text-primary transition-colors block break-words"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-muted-foreground">{item.value}</p>
+                    <p className="text-muted-foreground break-words">{item.value}</p>
                   )}
                 </div>
               ))}
             </div>
+
 
 
             {/* Social Icons */}
