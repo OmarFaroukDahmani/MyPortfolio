@@ -14,45 +14,75 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("Home");
+
+  const handleScrollTo = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false); // close mobile menu
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+
+      navItems.forEach((item) => {
+        const section = document.getElementById(item.href.replace("#", ""));
+        if (section) {
+          const top = section.offsetTop - 100;
+          const bottom = top + section.offsetHeight;
+          if (window.scrollY >= top && window.scrollY < bottom) {
+            setActiveSection(item.name);
+          }
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
       className={cn(
-        "fixed w-full z-50 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed z-50 transition-all duration-500 ease-in-out left-0 right-0 rounded-xl",
+        isScrolled
+          ? "w-[95%] mt-3 py-2 mx-auto bg-background/80 backdrop-blur-md shadow-md"
+          : "w-full py-4 bg-background/80"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="flex items-center justify-between transition-all duration-500 mx-4">
         {/* Logo */}
         <a
-          className="text-xl font-bold text-primary flex items-center"
+          className={cn(
+            "flex items-center font-bold text-primary transition-all duration-500",
+            isScrolled ? "text-lg" : "text-2xl"
+          )}
           href="/"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground">Omar</span> Portfolio
-          </span>
+          <span className="text-glow text-foreground">Omar</span> Portfolio
         </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex flex-1 items-center justify-center">
-          <ul className="flex space-x-8">
+          <ul className="flex space-x-4">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a
-                  href={item.href}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                <button
+                  onClick={() => handleScrollTo(item.href.replace("#", ""))}
+                  className={cn(
+                    "rounded-full border transition-all duration-500 font-medium",
+                    "px-4 py-2",
+                    "border-transparent text-foreground/80 hover:border-primary hover:text-primary",
+                    activeSection === item.name &&
+                      "border-primary text-primary font-semibold bg-primary/10"
+                  )}
                 >
                   {item.name}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -65,10 +95,7 @@ export const Navbar = () => {
 
         {/* Mobile Controls */}
         <div className="flex items-center md:hidden space-x-3">
-          {/* Theme Toggle on mobile */}
           <ThemeToggle />
-
-          {/* Burger Menu */}
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="p-2 text-foreground z-50"
@@ -83,22 +110,27 @@ export const Navbar = () => {
       <div
         className={cn(
           "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-          "transition-all duration-300 md:hidden",
+          "transition-all duration-500 md:hidden",
           isMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         )}
       >
-        <ul className="flex flex-col space-y-8 text-xl items-center">
+        <ul className="flex flex-col space-y-6 text-xl items-center">
           {navItems.map((item) => (
             <li key={item.name}>
-              <a
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                onClick={() => handleScrollTo(item.href.replace("#", ""))}
+                className={cn(
+                  "rounded-full border transition-all duration-500 font-medium",
+                  "px-4 py-2",
+                  "border-transparent text-foreground/80 hover:border-primary hover:text-primary",
+                  activeSection === item.name &&
+                    "border-primary text-primary font-semibold bg-primary/10"
+                )}
               >
                 {item.name}
-              </a>
+              </button>
             </li>
           ))}
         </ul>

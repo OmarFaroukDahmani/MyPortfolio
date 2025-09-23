@@ -36,7 +36,8 @@ export const AboutSection = () => {
 
               <a
               target="_blank"
-                href="https://drive.google.com/file/d/19QTQApgJdkwGXeJinPCiA8zG74rFj70Z/view?usp=sharing"
+              download
+                href="./public/Omar-Farouk-Dahmani-Resume.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
