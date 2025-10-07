@@ -42,6 +42,16 @@ const projects = [
     tags: ["React", "Jsx"],
     demoUrl: "https://sekachef.netlify.app/",
     githubUrl: "https://github.com/OmarFaroukDahmani/sekaChef",
+  },
+      {
+    id: 6,
+    title: "Driving School Mangment App",
+    description:
+      "AutoTimeTN is a Driving School Management Web App that helps driving schools manage their daily operations efficiently.",
+    image: "/projects/project6.png",
+    tags: ["React", "ExpressJs","MySQL"],
+    demoUrl: "https://autotimetn.pages.dev/",
+    githubUrl: "https://github.com/OmarFaroukDahmani/AutoEcole-time-managment",
   }
 ];
 
