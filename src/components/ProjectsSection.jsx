@@ -1,5 +1,4 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import { Link } from "react-router-dom";
 
 
 const projects = [
@@ -19,9 +18,9 @@ const projects = [
     description:
       "A university club website built with React.",
     image: "/projects/project3.png",
-    tags: ["React", "Jsx"],
+    tags: ["React", "Tailwind"],
     demoUrl: "https://edujoy.pages.dev/",
-    githubUrl: "https://github.com/OmarFaroukDahmani/edujoy",
+    githubUrl: "https://github.com/OmarFaroukDahmani/Edujoy-Alliance",
   },
     {
     id: 4,
@@ -29,7 +28,7 @@ const projects = [
     description:
       "A Platform for e-learning built with React (Vite).",
     image: "/projects/project4.png",
-    tags: ["React", "Jsx", ],
+    tags: ["React" ],
     demoUrl: "https://pizone.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/pizone",
   },
@@ -39,7 +38,7 @@ const projects = [
     description:
       "An AI-powered recipe guide that creates meal ideas from any ingredients you have on hand.",
     image: "/projects/project5.png",
-    tags: ["React", "Jsx"],
+    tags: ["React"],
     demoUrl: "https://sekachef.netlify.app/",
     githubUrl: "https://github.com/OmarFaroukDahmani/sekaChef",
   },
@@ -52,6 +51,16 @@ const projects = [
     tags: ["React", "ExpressJs","MySQL"],
     demoUrl: "https://autotimetn.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/AutoEcole-time-managment",
+  },
+        {
+    id: 7,
+    title: "Cargo Mangment App",
+    description:
+      "Manage your daily cargo with ease — CargoDo simplifies logistics for your business.",
+    image: "/projects/project7.png",
+    tags: ["React", "ExpressJs","MySQL"],
+    demoUrl: "https://cargodo.pages.dev/",
+    githubUrl: "https://github.com/OmarFaroukDahmani/Cargo-Manager",
   }
 ];
 
