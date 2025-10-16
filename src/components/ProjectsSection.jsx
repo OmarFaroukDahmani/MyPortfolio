@@ -24,9 +24,9 @@ const projects = [
   },
     {
     id: 4,
-    title: "E-learning Platform",
+    title: "PiZone — Productivity & Learning Hub",
     description:
-      "A Platform for e-learning built with React (Vite).",
+      "PiZone is an all-in-one productivity app with flashcards, notes, a Pomodoro timer, a to-do list, and AI assistance to help users stay organized and focused. Built with React and modern web technologies, it offers a clean, responsive interface.",
     image: "/projects/project4.png",
     tags: ["React" ],
     demoUrl: "https://pizone.pages.dev/",
