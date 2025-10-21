@@ -61,6 +61,16 @@ const projects = [
     tags: ["React", "ExpressJs","MySQL" , "Css"],
     demoUrl: "https://cargodo.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/Cargo-Manager",
+  },
+  {
+    id: 8,
+    title: "Freelance Portfolio Website",
+    description:
+      "A modern, responsive portfolio website using React and CSS, featuring smooth animations and a clean, user-friendly design.",
+    image: "/projects/project8.png",
+    tags: ["React", "Css"],
+    demoUrl: "https://rawen.pages.dev/",
+    githubUrl: "https://github.com/OmarFaroukDahmani",
   }
 ];
 
