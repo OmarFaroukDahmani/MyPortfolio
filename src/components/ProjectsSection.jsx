@@ -8,7 +8,7 @@ const projects = [
     description:
       "A commercial website built with Html and Css.",
     image: "/projects/project2.png",
-    tags: ["Javascript", "Html", "CSS"],
+    tags: ["Javascript", "Html", "Css"],
     demoUrl: "https://vistavault.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/VistaVault",
   },
@@ -18,7 +18,7 @@ const projects = [
     description:
       "A university club website built with React.",
     image: "/projects/project3.png",
-    tags: ["React", "Tailwind"],
+    tags: ["React", "Css"],
     demoUrl: "https://edujoy.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/Edujoy-Alliance",
   },
@@ -28,17 +28,17 @@ const projects = [
     description:
       "PiZone is an all-in-one productivity app with flashcards, notes, a Pomodoro timer, a to-do list, and AI assistance to help users stay organized and focused. Built with React and modern web technologies, it offers a clean, responsive interface.",
     image: "/projects/project4.png",
-    tags: ["React" ],
+    tags: ["React", "Css" ],
     demoUrl: "https://pizone.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/pizone",
   },
     {
     id: 5,
-    title: "AI Meal Maker",
+    title: "AI Meal Generater",
     description:
       "An AI-powered recipe guide that creates meal ideas from any ingredients you have on hand.",
     image: "/projects/project5.png",
-    tags: ["React"],
+    tags: ["React", "Css"],
     demoUrl: "https://sekachef.netlify.app/",
     githubUrl: "https://github.com/OmarFaroukDahmani/sekaChef",
   },
@@ -48,7 +48,7 @@ const projects = [
     description:
       "AutoTimeTN is a Driving School Management Web App that helps driving schools manage their daily operations efficiently.",
     image: "/projects/project6.png",
-    tags: ["React", "ExpressJs","MySQL"],
+    tags: ["React", "ExpressJs","MySQL","Css"],
     demoUrl: "https://autotimetn.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/AutoEcole-time-managment",
   },
@@ -58,7 +58,7 @@ const projects = [
     description:
       "Manage your daily cargo with ease — CargoDo simplifies logistics for your business.",
     image: "/projects/project7.png",
-    tags: ["React", "ExpressJs","MySQL"],
+    tags: ["React", "ExpressJs","MySQL" , "Css"],
     demoUrl: "https://cargodo.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani/Cargo-Manager",
   }
