@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { ThemeToggle } from "../components/ThemeToggle";
+import { AnimatedThemeToggler } from "../components/ui/animated-theme-toggler";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -48,17 +48,17 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed z-50 transition-all duration-500 ease-in-out left-0 right-0 rounded-xl",
+        "fixed z-50 transition-[width,padding,margin,transform,border] duration-500 ease-in-out left-0 right-0 rounded-xl",
         isScrolled
-          ? "w-[95%] mt-3 py-2 mx-auto bg-background/80 backdrop-blur-md shadow-md"
-          : "w-full py-4 bg-background/80"
+          ? "w-[95%] mt-3 py-2 mx-auto bg-background/80 backdrop-blur-md shadow-md border border-border"
+          : "w-full py-4 bg-background/80 border-transparent"
       )}
     >
-      <div className="flex items-center justify-between transition-all duration-500 mx-4">
+      <div className="flex items-center justify-between transition-[transform] duration-500 mx-4">
         {/* Logo */}
         <a
           className={cn(
-            "flex items-center font-bold text-primary transition-all duration-500",
+            "flex items-center font-bold text-primary transition-[font-size,transform] duration-500",
             isScrolled ? "text-lg" : "text-2xl"
           )}
           href="/"
@@ -90,12 +90,18 @@ export const Navbar = () => {
 
         {/* Desktop Theme Toggle */}
         <div className="hidden md:flex items-center">
-          <ThemeToggle />
+          <AnimatedThemeToggler
+            duration={700}
+            className="flex items-center justify-center h-10 w-10 rounded-full border-2 border-border bg-background/80 backdrop-blur-sm text-foreground shadow-md dark:shadow-white/5 hover:bg-accent hover:text-accent-foreground"
+          />
         </div>
 
         {/* Mobile Controls */}
         <div className="flex items-center md:hidden space-x-3">
-          <ThemeToggle />
+          <AnimatedThemeToggler
+            duration={700}
+            className="flex items-center justify-center h-10 w-10 rounded-full border-2 border-border bg-background/80 backdrop-blur-sm text-foreground shadow-md dark:shadow-white/5 hover:bg-accent hover:text-accent-foreground"
+          />
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="p-2 text-foreground z-50"
