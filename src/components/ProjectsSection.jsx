@@ -8,7 +8,7 @@ const projects = [
       title: "National Bardo Museum",
       description:
         "An immersive digital experience for Tunisia's historical heritage. Features advanced parallax scrolling, complex page transitions, and SEO optimization.",
-      image: "project1.jpg", 
+      image: "/projects/project1.png", 
       tags: ["React", "Framer Motion", "GSAP", "Tailwind CSS"],
       demoUrl: "https://bardomuseum.pages.dev", 
       githubUrl: "https://github.com/OmarFaroukDahmani/bardoMuseum",
