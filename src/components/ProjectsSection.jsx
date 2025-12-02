@@ -82,6 +82,16 @@ const projects = [
     tags: ["React", "Css"],
     demoUrl: "https://rawen.pages.dev/",
     githubUrl: "https://github.com/OmarFaroukDahmani",
+  },
+  {
+    id: 9,
+    title: "Love Charity Website",
+    description:
+      "A dedicated, modern charity website focused on [Insert Charity's Mission, e.g., 'raising awareness and collecting donations for local community projects']. Built with [Specify Frontend Technology], featuring a clean, responsive design, and integration for donation processing.",
+    image: "/projects/project9.png", 
+    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    demoUrl: "https://lovecharity.pages.dev", 
+    githubUrl: "https://github.com/OmarFaroukDahmani/LoveCharity", 
   }
 ];
 
